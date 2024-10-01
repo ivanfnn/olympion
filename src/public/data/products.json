@@ -1,1 +1,83 @@
-[]
+[
+    {
+      "id": 1,
+      "title": "EnergyMax Pro",
+      "description": "Bebida energética con alto contenido de cafeína y vitaminas.",
+      "code": "EMP1001",
+      "price": 2.99,
+      "stock": 50,
+      "category": "Bebidas Energéticas",
+      "status": true
+    },
+    {
+      "id": 2,
+      "title": "PowerRush Xtreme",
+      "description": "Energía intensa para el máximo rendimiento físico y mental.",
+      "code": "PRX2002",
+      "price": 3.49,
+      "stock": 30,
+      "category": "Bebidas Energéticas",
+      "status": true
+    },
+    {
+      "id": 3,
+      "title": "ThunderFuel",
+      "description": "Bebida con mezcla de cafeína, taurina y electrolitos para máxima hidratación.",
+      "code": "TF3003",
+      "price": 3.99,
+      "stock": 20,
+      "category": "Bebidas Energéticas",
+      "status": true
+    },
+    {
+      "id": 4,
+      "title": "VoltCharge",
+      "description": "Bebida energética con extracto de guaraná y vitamina B12.",
+      "code": "VC4004",
+      "price": 2.79,
+      "stock": 45,
+      "category": "Bebidas Energéticas",
+      "status": true
+    },
+    {
+      "id": 5,
+      "title": "NitroBoost",
+      "description": "Mezcla avanzada de cafeína y aminoácidos para un impulso rápido.",
+      "code": "NB5005",
+      "price": 3.29,
+      "stock": 35,
+      "category": "Bebidas Energéticas",
+      "status": true
+    },
+    {
+      "id": 6,
+      "title": "HyperBolt",
+      "description": "Bebida energética con sabor a frutas tropicales, ideal para deportistas.",
+      "code": "HB6006",
+      "price": 3.79,
+      "stock": 25,
+      "category": "Bebidas Energéticas",
+      "status": true
+    },
+    {
+      "id": 7,
+      "title": "SpeedFuel",
+      "description": "Recarga tu energía al instante con esta bebida a base de taurina y cafeína.",
+      "code": "SF7007",
+      "price": 2.99,
+      "stock": 40,
+      "category": "Bebidas Energéticas",
+      "status": true
+    },
+    {
+      "id": 8,
+      "title": "TurboEnergy",
+      "description": "Energía duradera con esta mezcla especial de cafeína y extractos naturales.",
+      "code": "TE8008",
+      "price": 4.49,
+      "stock": 15,
+      "category": "Bebidas Energéticas",
+      "status": true
+    }
+  ]
+  

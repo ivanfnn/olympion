@@ -3,21 +3,21 @@ import { getCartById, createCart, addProductToCart } from '../controllers/cartCo
 
 const router = Router();
 
-
-const validateCartId = (req, res) => {
+const validateCartId = (req, res, next) => {
     const { cid } = req.params;
-    if (isNaN(cid) || cid <= 0) {
+    if (isNaN(parseInt(cid)) || parseInt(cid) <= 0) {
         return res.status(400).json({ message: 'ID del carrito inválido' });
     }
+    next();
 };
 
-const validateProductId = (req, res) => {
+const validateProductId = (req, res, next) => {
     const { pid } = req.params;
-    if (isNaN(pid) || pid <= 0) {
+    if (isNaN(parseInt(pid)) || parseInt(pid) <= 0) {
         return res.status(400).json({ message: 'ID del producto inválido' });
     }
+    next();
 };
-
 
 router.get('/:cid', validateCartId, getCartById);
 router.post('/', createCart);
