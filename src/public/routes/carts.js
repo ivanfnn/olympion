@@ -1,26 +1,22 @@
 import { Router } from 'express';
-import { getCartById, createCart, addProductToCart } from '../controllers/cartController';
+import CartController from '../controllers/cartController.js';
 
 const router = Router();
+const cartController = new CartController();
 
-const validateCartId = (req, res, next) => {
-    const { cid } = req.params;
-    if (isNaN(parseInt(cid)) || parseInt(cid) <= 0) {
-        return res.status(400).json({ message: 'ID del carrito inválido' });
+router.get('/', cartController.get);
+router.get('/:cid', cartController.getOne);
+router.post('/', cartController.add);
+router.post('/:cid/products/:pid', async (req, res) => {
+    try {
+        const { cid, pid } = req.params;
+        const { quantity = 1 } = req.body; 
+        const cart = await cartController.addProductToCart(cid, pid, quantity);
+        res.status(200).json({ status: 'success', payload: cart });
+    } catch (error) {
+        res.status(500).json({ status: 'error', message: error.message });
     }
-    next();
-};
-
-const validateProductId = (req, res, next) => {
-    const { pid } = req.params;
-    if (isNaN(parseInt(pid)) || parseInt(pid) <= 0) {
-        return res.status(400).json({ message: 'ID del producto inválido' });
-    }
-    next();
-};
-
-router.get('/:cid', validateCartId, getCartById);
-router.post('/', createCart);
-router.post('/:cid/product/:pid', validateCartId, validateProductId, addProductToCart);
+});
+router.delete('/:cid', cartController.delete);
 
 export default router;

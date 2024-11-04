@@ -1,11 +1,9 @@
 import { Router } from 'express';
 
-
 const router = Router();
 
 router.get('/', (req, res) => {
     const data = {
-        
       "id": 1,
       "title": "EnergyMax Pro",
       "description": "Bebida energética con alto contenido de cafeína y vitaminas.",
@@ -14,12 +12,9 @@ router.get('/', (req, res) => {
       "stock": 50,
       "category": "Bebidas Energéticas",
       "status": true
-        
     };
     
     res.status(200).render('index', data);
 });
-
-
 
 export default router;
