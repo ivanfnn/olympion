@@ -8,21 +8,36 @@
             </li>
         {{/each}}
     </ul>
-    {{#if hasPrevPage}}<a href="/api/products?limit={{limit}}&page={{prevPage}}">Página anterior</a>{{/if}}
-    {{#if hasNextPage}}<a href="/api/products?limit={{limit}}&page={{nextPage}}">Página siguiente</a>{{/if}}
+    {{#if hasPrevPage}}
+        <a href="/api/products?limit={{limit}}&page={{prevPage}}">Página anterior</a>
+    {{/if}}
+    {{#if hasNextPage}}
+        <a href="/api/products?limit={{limit}}&page={{nextPage}}">Página siguiente</a>
+    {{/if}}
 </div>
 
 <script>
+   
+    const cartId = "{{cartId}}"; 
+
     function addToCart(productId) {
-        fetch(`/api/carts/YOUR_CART_ID/products/${productId}`, {
+        if (!cartId) {
+            alert('No tienes un carrito asociado. Por favor, inicia sesión o crea uno.');
+            return;
+        }
+
+        fetch(`/api/carts/${cartId}/products/${productId}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ quantity: 1 }) // Asumiendo que la cantidad es 1
+            body: JSON.stringify({ quantity: 1 })
         })
         .then(response => response.json())
         .then(data => {
             alert('Producto agregado al carrito');
         })
-        .catch(error => console.error('Error:', error));
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Hubo un error al agregar el producto al carrito');
+        });
     }
 </script>
